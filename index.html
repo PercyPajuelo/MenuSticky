@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Menú sticky</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .sticky {
+            position: fixed;
+            top:0;
+            width: 100%;
+            z-index: 100;
+            background-color: rgba(green, .8);
+        }
+        ul li {
+            line-height:1.2;
+        }
+    </style>
+</head>
+<body>
+    <div style="width:100%; height:150px; background-color: red;">
+        <p>
+            Reliza la retención de menú principal en el viewport del browser cuando el usuario se desplaza hacia la parte inferior y el menú tiene que seguir mostrandose visible.
+        </p>
+    </div>
+    <ul id="main-nav" style="list-style-type: none; margin:0; display: block; height: 45px; background-color: orange; vertical-align:middle;">
+        <li>
+            <a href="#">Home</a>
+            <a href="#">Music</a>
+            <a href="#">News</a>
+            <a href="#">Collage</a>
+            <a href="#">Contact</a>
+        </li>
+    </ul>
+    <div style="width: 100%; background-color: pink; height: 550px">Bloque 1</div>
+    <div style="width: 100%; background-color: purple;height: 350px">Bloque 1</div>
+    <div style="width: 100%; background-color: brown;height: 250px">Bloque 1</div>
+    <div style="width: 100%; background-color: steelblue;height: 150px">Bloque 1</div>
+    <div style="width: 100%; background-color: peru;height: 250px">Bloque 1</div>
+    <div style="width: 100%; background-color: alice;height: 550px">Bloque 1</div>
+</body>
+<script>
+    (function(d) {
+        let nav = d.getElementById('main-nav');
+        let top = nav.offsetTop;
+        window.addEventListener('scroll', e => {        
+            let scroll = d.body.scrollTop;
+            if (e.pageY > top) {
+                nav.classList.add('sticky');
+            } else {
+                nav.classList.remove('sticky');
+            }
+        });
+    })(document);
+</script>
+</html>
